@@ -8,13 +8,33 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardMedia from '@material-ui/core/CardMedia';
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+
+import IconButton from '@material-ui/core/IconButton';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import ShareIcon from '@material-ui/icons/Favorite';
+import Avatar from '@material-ui/core/Avatar';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
+
+
 import Api from '../../apis/api';
 const axios = require('axios');
 
 const customStyles = {
     root: {
         'padding' : '20px',
-        'margin' : '5px'
+        'marginTop' : '15px'
+    },
+    media: {
+        'height': '0',
+        'paddingTop': '30%', // 16:9
+    },
+    card: {
+        'maxWidth': '1200px',
     },
 };
 
@@ -25,30 +45,58 @@ class Blog extends Component {
 
     render(){ 
         const { classes } = this.props;
-        console.log(typeof this.props.post)
+        // console.log(typeof this.props.post)
         return (
             <>  
-                {
-                    this.props.isPostLoading ?  
-                        <Grid container  justify="center">
+                <Grid container justify="center">
+                    {
+                        this.props.isPostLoading ?  
                             <CircularProgress />
-                        </Grid> 
-                     : (
-                        this.props.post.map((post,i) =>   
-                            <Paper key={i} className={classes.root}>
-                                <Typography variant="h3" component="h3">
-                                    {post.title}
-                                </Typography>
-                                <Typography variant="h6" component="h6">
-                                    {post.author}
-                                </Typography>
-                                <Typography component="p">
-                                    {post.content}
-                                </Typography>
-                            </Paper>
-                        )
-                    )     
-                }
+                        : (
+                            this.props.post.map((post,i) =>   
+                                <Card key={post.id} className={`${classes.card} + ${classes.root}`}>
+                                    <CardHeader
+                                        avatar={
+                                            <Avatar aria-label="recipe" >
+                                                R
+                                            </Avatar>
+                                        }
+                                        action={
+                                            <IconButton aria-label="settings">
+                                                <MoreVertIcon />
+                                            </IconButton>
+                                        }
+                                        title={post.title}
+                                        subheader={post.date_created}
+                                    />
+                                    <CardMedia
+                                        className={classes.media}
+                                        // image={"images/"+post.img_path}
+                                        image="../../images/grilled-pork.jpeg"
+                                        title="Paella dish"
+                                    />
+                                    <CardContent>
+                                        <Typography variant="body2" color="textSecondary" componen
+                                        
+                                        
+                                        
+                                        t="p">
+                                            {post.content}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions disableSpacing>
+                                        <IconButton aria-label="add to favorites">
+                                            <FavoriteIcon />
+                                        </IconButton>
+                                        <IconButton aria-label="share">
+                                            <ShareIcon />
+                                        </IconButton>
+                                    </CardActions>
+                                </Card>
+                            )
+                        )     
+                    }
+                </Grid>
             </>
         )
     } 
