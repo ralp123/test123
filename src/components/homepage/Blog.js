@@ -20,14 +20,13 @@ import ShareIcon from '@material-ui/icons/Favorite';
 import Avatar from '@material-ui/core/Avatar';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 
-
 import Api from '../../apis/api';
 const axios = require('axios');
 
 const customStyles = {
     root: {
         'padding' : '20px',
-        'marginTop' : '15px'
+        'marginBottom': '20px'
     },
     media: {
         'height': '0',
@@ -76,11 +75,7 @@ class Blog extends Component {
                                         title="Paella dish"
                                     />
                                     <CardContent>
-                                        <Typography variant="body2" color="textSecondary" componen
-                                        
-                                        
-                                        
-                                        t="p">
+                                        <Typography variant="body2" color="textSecondary" component="p">
                                             {post.content}
                                         </Typography>
                                     </CardContent>

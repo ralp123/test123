@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../App.css';
+import '../../App.scss';
 import { Link } from 'react-router-dom';
 //const axios = require('axios');
 import Grid from '@material-ui/core/Grid';
@@ -12,7 +12,8 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import { Z_FIXED } from 'zlib';
+
+// import { BrowserRouter, Route, Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -25,11 +26,8 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
       	flexGrow: 1,
-	},
-	// stickyBar: {
-	// 	// 'position': 'fixed'
-	// }
-  }));
+    }
+}));
   
 export default function Navbar() {
     const classes = useStyles();
@@ -41,9 +39,16 @@ export default function Navbar() {
                     <Typography variant="h6" className={classes.title}>
                         Food Blog
                     </Typography>
-                    <Button color="inherit">Home</Button>
+                    <Link className="plain-link" to="/">
+                        <Button color="inherit">Home</Button>
+                    </Link>
                     <Button color="inherit">Blog</Button>
-                    <Button color="inherit">Login</Button>
+                    <Link className="plain-link" to="/login">
+                        <Button color="inherit">Login</Button>
+                    </Link>  
+                    {/* </Link> */}
+
+                    {/* <Link className="nav-link" to="/blog">Test</Link> */}
                 </Toolbar>
             </AppBar>
         </div>

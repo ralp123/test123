@@ -22,6 +22,16 @@
 }
 
 .float-right {
-    float: right !important;
-    color: red;
+  float: right !important;
 }
+
+.plain-link {
+  text-decoration: none; 
+  color : white;
+}
+
+.no-padding {
+  padding: 0px;
+}
+
+
