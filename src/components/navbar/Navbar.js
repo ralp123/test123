@@ -42,7 +42,9 @@ export default function Navbar() {
                     <Link className="plain-link" to="/">
                         <Button color="inherit">Home</Button>
                     </Link>
-                    <Button color="inherit">Blog</Button>
+                    <Link className="plain-link" to="/blog">
+                        <Button color="inherit">Blog</Button>
+                    </Link>
                     <Link className="plain-link" to="/login">
                         <Button color="inherit">Login</Button>
                     </Link>  

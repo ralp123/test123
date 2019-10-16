@@ -18,6 +18,8 @@ function Routes() {
 
             <Route exact path="/" component={HomePage} />
 
+            <Route exact path="/blog" component={HomePage} />
+
             <Route exact path="/login" component={Login} />
 
             {/*

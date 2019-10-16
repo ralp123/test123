@@ -19,8 +19,6 @@ import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 
 
-
-
 import Api from '../../apis/api';
 const axios = require('axios');
 
@@ -32,13 +30,37 @@ const customStyles = {
         'textAlign' : 'left !important'
     },
     primaryColor: {
-        'backgroundColor' : '#2196f3'
+        'backgroundColor' : '#2196f3',
+        'color': 'white',
+    },
+    customCardHeader: {
+        'paddingTop' : '20px',
+        'paddingBottom' : '20px',
+        'paddingRight' : '30px',
+        'paddingLeft' : '30px'
+    },
+    customCardContent: {
+        'paddingRight' : '30px',
+        'paddingLeft' : '30px',
+    },
+    customCardBorder: {
+        'border-radius' : '0px'
     },
     noPadding: {
         'padding': '0px'
     },
     form: {
-        width: '94%',
+        'width': '100%'
+    },
+    floatRight: {
+        float: 'right'
+    },
+    loginBtnMarginTop: {
+        'marginTop' : '50px'
+    },
+    plainLink: {
+        textDecoration: 'none', 
+        color : '#2196f3'
     }
 };
 
@@ -124,23 +146,47 @@ class Login extends Component {
                     </Grid>
                 </Container> */}
                 <Container maxWidth="sm">
-                    <Card>
-                        <CardHeader className={classes.primaryColor}
-                            // avatar={
-                            //     <Avatar aria-label="recipe" >
-                            //         R
-                            //     </Avatar>
-                            // }
-                            // action={
-                            //     <IconButton aria-label="settings">
-                            //         <MoreVertIcon />
-                            //     </IconButton>
-                            // }
-                            // title={post.title}
-                            // subheader={post.date_created}
+                    <Grid container justify="center" alignItems="center">
+                        Logo 
+                    </Grid>
+                </Container>
+                
+                <Container maxWidth="sm">
+                    <Card className={classes.customCardBorder}>
+                        <CardHeader className={`${classes.primaryColor} + ${classes.customCardHeader}`} 
+                            title="Log In"
                         />
-                        <CardContent>
-                            tdsfds
+                        <CardContent className={classes.customCardContent}>
+                            <form className={classes.form}>
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="standard-password-input"
+                                    label="E-mail Address"
+                                    name="emailAddress"
+                                    autoComplete="current-password"
+                                />
+                                <TextField
+                                    margin="normal"
+                                    required
+                                    fullWidth
+                                    id="standard-password-input"
+                                    label="Password"
+                                    name="password"
+                                    autoComplete="current-password"
+                                />
+                                <Grid container className={classes.loginBtnMarginTop} xs={12}>
+                                    <Grid container xs={6} alignItems="center">
+                                        <Link className={classes.plainLink}>FORGOT PASSWORD?</Link>
+                                    </Grid>
+                                    <Grid container justify="flex-end" xs={6}>
+                                        <Button type="submit" variant="contained" size="large" color="primary" className={classes.primaryColor}>
+                                            Login
+                                        </Button>
+                                    </Grid>
+                                </Grid>                               
+                            </form>
                         </CardContent>
                     </Card>
                 </Container>
