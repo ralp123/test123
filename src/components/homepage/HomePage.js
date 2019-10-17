@@ -4,9 +4,14 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
+
 import Blog from './Blog';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
+
+import Icon from '@material-ui/core/Icon';
+import { AccessAlarm, Search, QueryBuilder, Info } from '@material-ui/icons';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 // import CircularProgress from '@material-ui/core/CircularProgress';
 // import Paper from '@material-ui/core/Paper';
@@ -25,6 +30,7 @@ import Container from '@material-ui/core/Container';
 // import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 import Api from '../../apis/api';
+import { green } from '@material-ui/core/colors';
 
 const customStyles = {
     root: {
@@ -42,6 +48,23 @@ const customStyles = {
         paddingRight : '0px',
         paddingLeft : '0px',
     },
+    customIcon: {
+        color : 'green',
+        fontSize: '64px',
+        marginTop: '48px',
+        marginBottom: '20px'
+    },
+    aboutUsText: {
+        writingMode: 'vertical-rl',
+        textOrientation: 'upright'
+    },
+    spanIconTitle: {
+        marginLeft: "-64px",
+        fontSize: "22px"
+    },
+    iconContent: {
+        paddingRight: "20px"
+    }
     // media: {
     //     'height': '0',
     //     'paddingTop': '30%', // 16:9
@@ -61,19 +84,45 @@ class HomePage extends Component {
         return (
             <>  
                 <Grid container className={classes.root} >
-                    <Container maxWidth="md">
+                    {/* <Container maxWidth="md">
                         <Grid container xs={12} sm={12} class={classes.customPadding}>
                             <h1>Lorem Ipsum</h1>
                             <h3>It is a long established fact</h3> 
                         </Grid>
-                    </Container>
+                    </Container> */}
                     <Container className={classes.zeroPadding}>
                         <Grid container xs={12} sm={12} className="test">
-                           <img className={classes.img} src={require('../../images/spices1200x800-1.jpg')} />
+                           <img className={classes.img} src={require('../../images/food-trends-2018-1200x500.jpg')} />
                         </Grid>
                     </Container>
                     {/* <Blog /> */}
-                   
+                    <Container maxWidth="xl" className={classes.zeroPadding}> 
+                        <Grid container xs={12} sm={12} >
+                            <Grid item sm={2}>
+                                <h1 className="aboutUsText">About Us</h1>
+                            </Grid>
+                            <Grid item sm={3}>
+                                <Search className={classes.customIcon} />
+                                <span className={classes.spanIconTitle}>Lorem Ipsum</span>
+                                <p className={classes.iconContent}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                            </Grid>
+                            <Grid item sm={3}>
+                                <QueryBuilder className={classes.customIcon} />
+                                <span className={classes.spanIconTitle}>Lorem Ipsum</span>
+                                <p className={classes.iconContent}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                            </Grid>
+                            <Grid item sm={3}>
+                                <Info className={classes.customIcon} />
+                                <span className={classes.spanIconTitle}>Lorem Ipsum</span>
+                                <p className={classes.iconContent}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                            </Grid>
+                        </Grid>
+                    </Container>
+                    <Container maxWidth="xl" className={classes.zeroPadding}> 
+                        <Grid container xs={12} sm={12} >
+                            <h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h1>
+                        </Grid>
+                    </Container>
                 </Grid>
             </>
         )
