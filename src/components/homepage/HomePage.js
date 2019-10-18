@@ -90,11 +90,16 @@ class HomePage extends Component {
                             <h3>It is a long established fact</h3> 
                         </Grid>
                     </Container> */}
-                    <Container className={classes.zeroPadding}>
+                    {/* <Container className={classes.zeroPadding}>
                         <Grid container xs={12} sm={12} className="test">
                            <img className={classes.img} src={require('../../images/food-trends-2018-1200x500.jpg')} />
                         </Grid>
-                    </Container>
+                    </Container> */}
+                    
+                    {/* <img className={classes.img} src={require('../../images/food-trends-2018-1200x500.jpg')} /> */}
+
+                    <div className="divBackGround"></div>
+                    
                     {/* <Blog /> */}
                     <Container maxWidth="xl" className={classes.zeroPadding}> 
                         <Grid container xs={12} sm={12} >
@@ -109,7 +114,10 @@ class HomePage extends Component {
                             <Grid item sm={3}>
                                 <QueryBuilder className={classes.customIcon} />
                                 <span className={classes.spanIconTitle}>Lorem Ipsum</span>
-                                <p className={classes.iconContent}>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                <p className={classes.iconContent}>It is a long established fa
+                                
+                                
+                                ct that a reader will be distracted by the readable content of a page when looking at its layout.</p>
                             </Grid>
                             <Grid item sm={3}>
                                 <Info className={classes.customIcon} />
@@ -118,8 +126,8 @@ class HomePage extends Component {
                             </Grid>
                         </Grid>
                     </Container>
-                    <Container maxWidth="xl" className={classes.zeroPadding}> 
-                        <Grid container xs={12} sm={12} >
+                    <Container maxWidth="xl" className={classes.zeroPadding} style={{backgroundColor : "gray"}}> 
+                        <Grid container justify="center" xs={10} sm={10} >
                             <h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h1>
                         </Grid>
                     </Container>
