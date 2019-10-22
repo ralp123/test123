@@ -27,6 +27,11 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 
 import FormHelperText from '@material-ui/core/FormHelperText';
 import Button from '@material-ui/core/Button';
+//import Carousel from '@material-ui/core/Carousel';
+
+import Carousel from 'react-material-ui-carousel';
+import autoBind from 'auto-bind';
+import Paper from '@material-ui/core/Paper';
 
 // import Card from '@material-ui/core/Card';
 // import CardHeader from '@material-ui/core/CardHeader';
@@ -95,7 +100,9 @@ const customStyles = {
     },
     sendMessageBtn: {
         backgroundColor: '#00A8CB',
-        color: '#ffffff'
+        color: '#ffffff',
+        borderRadius: '0px', 
+        padding: '10px 20px'
     },
     appBar: {
         top: 'auto',
@@ -110,13 +117,84 @@ const customStyles = {
     // },
 };
 
+const items = [
+    {
+        name: "Lear Music Reader",
+        description: "A PDF Reader specially designed for musicians.",
+        color: "#64ACC8"
+    },
+    {
+        name: "Hash Code 2019",
+        description: "My Solution on the 2019 Hash Code by Google Slideshow problem.",
+        color: "#7D85B1"
+    },
+    {
+        name: "Terrio",
+        description: "A exciting mobile game game made in the Unity Engine.",
+        color: "#CE7E78"
+    },
+    {
+        name: "React Carousel",
+        description: "A Generic carousel UI component for React using material ui.",
+        color: "#C9A27E"
+    }
+]
+
 class HomePage extends Component {
     constructor(props){
         super(props)
+
+        this.state = {
+            autoPlay: true,
+            timer: 500,
+            animation: "fade",
+            indicators: true
+        }
+
+        autoBind(this);
+    }
+
+    toggleAutoPlay(){
+        this.setState({
+            autoPlay: !this.state.autoPlay
+        })
+    }
+
+    toggleIndicators(){
+        this.setState({
+            indicators: !this.state.indicators
+        })
+    }
+
+    changeAnimation(event){
+        this.setState({
+            animation: event.target.value
+        })
+    }
+
+    Project = (props) => 
+    {
+        return (
+            <Paper 
+                className="Project"
+                style={{
+                    backgroundColor: props.item.color, 
+                }}
+                elevation={10}
+            >
+                <h2>{props.item.name}</h2>
+                <p>{props.item.description}</p>
+
+                <Button className="CheckButton">
+                    Check it out!
+                </Button>
+            </Paper>
+        )
     }
 
     render(){ 
         const { classes } = this.props;
+        const Project = this.Project;
         return (
             <>  
                 <Grid container className={classes.root} >
@@ -165,7 +243,7 @@ class HomePage extends Component {
                         </Grid>
                     </Container>
 
-                    <Container component="main" maxWidth="xs">
+                    <Container component="main" maxWidth="xs" style={{paddingBottom: '20px'}}>
                         <div className={classes.paper}>
                             <Typography component="h1" variant="h3">
                                 Drop Us A Note
@@ -173,74 +251,128 @@ class HomePage extends Component {
                             <form className={classes.form} noValidate>
                                 <Grid item xs={12} className={classes.inputMarginTop}>
                                     <TextField
-                                        variant="outlined"
+                                        id="filled-company-input"
+                                        label="Name"
                                         required
                                         fullWidth
-                                        id="name"
-                                        label="Name"
+                                        type="text"
                                         name="name"
                                         autoComplete="name"
-                                        className="testing123"
-                                        style={{ borderRadius: "0px" }}
+                                        margin="normal"
+                                        variant="filled"
+                                        className="helloworld"
                                     />
                                 </Grid>
                                 <Grid item xs={12} className={classes.inputMarginTop}>
                                     <TextField
-                                        variant="outlined"
-                                        fullWidth
-                                        id="company"
+                                        id="filled-company-input"
                                         label="Company"
+                                        required
+                                        fullWidth
+                                        type="text"
                                         name="company"
-                                        className="testing123"
                                         autoComplete="company"
+                                        margin="normal"
+                                        variant="filled"
+                                        className="helloworld"
                                     />
                                 </Grid>
                                 <Grid item xs={12} className={classes.inputMarginTop}>
                                     <TextField
-                                        variant="outlined"
-                                        fullWidth
-                                        id="email"
+                                        id="filled-email-input"
                                         label="Email"
+                                        required
+                                        fullWidth
+                                        type="email"
                                         name="email"
-                                        className="testing123"
                                         autoComplete="email"
+                                        margin="normal"
+                                        variant="filled"
+                                        className="helloworld"
                                     />
                                 </Grid>
                                 <Grid item xs={12} className={classes.inputMarginTop}>
                                     <TextField
-                                        variant="outlined"
-                                        fullWidth
-                                        id="phone"
+                                        id="filled-phone-input"
                                         label="Phone"
+                                        required
+                                        fullWidth
+                                        type="text"
                                         name="phone"
-                                        className="testing123"
                                         autoComplete="phone"
+                                        margin="normal"
+                                        variant="filled"
+                                        className="helloworld"
                                     />
                                 </Grid>
                                 <Grid item xs={12} className={classes.inputMarginTop}>
                                     <TextField
-                                        variant="outlined"
-                                        fullWidth
-                                        id="message"
+                                        id="filled-message-input"
                                         label="Message"
+                                        required
+                                        fullWidth
+                                        type="text"
                                         name="message"
-                                        className="testing123"
                                         autoComplete="message"
+                                        margin="normal"
+                                        variant="filled"
+                                        className="helloworld"
                                         multiline
                                         rows="4"
                                     />
                                 </Grid>
                                 <Grid item xs={12} className={classes.inputMarginTop}>
-                                    <Button variant="contained" className={classes.sendMessageBtn} style={{float: 'right'}}>
+                                    <Button size="large" className={classes.sendMessageBtn} style={{float: 'right'}}>
                                         Send Message
                                     </Button>
                                 </Grid>
                             </form>
                         </div>
                     </Container>
+                    {/* <br /><br /> */}
+                    <Grid container xs={10} sm={10}>
+                        <div class="carousel carousel-slider center">
+                            <div class="carousel-fixed-item center">
+                                <a class="btn waves-effect white grey-text darken-text-2">button</a>
+                            </div>
+                            <div class="carousel-item red white-text" href="#one!">
+                                <h2>First Panel</h2>
+                                <p class="white-text">This is your first panel</p>
+                            </div>
+                            <div class="carousel-item amber white-text" href="#two!">
+                                <h2>Second Panel</h2>
+                                <p class="white-text">This is your second panel</p>
+                            </div>
+                            <div class="carousel-item green white-text" href="#three!">
+                                <h2>Third Panel</h2>
+                                <p class="white-text">This is your third panel</p>
+                            </div>
+                            <div class="carousel-item blue white-text" href="#four!">
+                                <h2>Fourth Panel</h2>
+                                <p class="white-text">This is your fourth panel</p>
+                            </div>
+                        </div>
+                    </Grid>
+
+                    <div style={{marginTop: "50px", color: "#494949"}}>
+                        <Carousel 
+                            className="SecondExample"
+                            autoPlay={false}
+                            timer={this.state.timer}
+                            animation={true}
+                            indicators={this.state.indicators}
+                        >
+                            {
+                                items.map( (item, index) => {
+                                    return <Project item={item} key={index}/>
+                                })
+                            }
+                        </Carousel>
+                    </div>
+
                     <AppBar color="primary" position="static" className={classes.appBar}>
                         <Typography variant="h6" color="inherit">
-                            &copy; 2017 | Partner Gauge LCC
+                            &copy; 2017 | Lorem ipsum
                         </Typography>
                     </AppBar>
                 </Grid>

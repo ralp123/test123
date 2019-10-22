@@ -52,6 +52,57 @@ div.testing123 div fieldset{
     background-color: #F2F2F2;
 }
 
+div.helloworld{
+  border-radius: 0px;
+}
+
+div.helloworld div{
+  border-radius: 0px;
+  border-bottom: 0px;
+}
+
+div.helloworld div::after{
+  border-bottom: 0px;
+}
+
+div.helloworld div::before{
+  border-bottom: 0px;
+}
+
+div.helloworld div:hover::before{
+  border-bottom: 0px;
+}
+
+.Mui-focused{
+  color: rgba(0, 0, 0, 0.54) !important;
+}
+
+.SecondExample
+{
+    width: 500px;
+
+    .Project
+    {
+        position: relative;
+        height: 300px;
+        overflow: hidden;
+        padding: 20px;
+
+        *
+        {
+            color: white;
+        }
+
+        .CheckButton
+        {
+            margin-top: 40px;
+            color: white;
+            font-size: 30px;
+            border: 3px solid white;
+            text-transform: capitalize;
+        }
+    }
+}
 
 
 
