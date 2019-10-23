@@ -36,6 +36,11 @@ import Paper from '@material-ui/core/Paper';
 // import Card from '@material-ui/core/Card';
 // import CardHeader from '@material-ui/core/CardHeader';
  import CardMedia from '@material-ui/core/CardMedia';
+
+
+ import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+
 // import CardContent from '@material-ui/core/CardContent';
 // import CardActions from '@material-ui/core/CardActions';
 
@@ -179,6 +184,8 @@ class HomePage extends Component {
                 className="Project"
                 style={{
                     backgroundColor: props.item.color, 
+                    textAlign: 'center',
+                    zIndex: '-1'
                 }}
                 elevation={10}
             >
@@ -195,23 +202,11 @@ class HomePage extends Component {
     render(){ 
         const { classes } = this.props;
         const Project = this.Project;
+
+        // const matches = useMediaQuery('(min-width:600px)');
         return (
             <>  
                 <Grid container className={classes.root} >
-                    {/* <Container maxWidth="md">
-                        <Grid container xs={12} sm={12} class={classes.customPadding}>
-                            <h1>Lorem Ipsum</h1>
-                            <h3>It is a long established fact</h3> 
-                        </Grid>
-                    </Container> */}
-                    {/* <Container className={classes.zeroPadding}>
-                        <Grid container xs={12} sm={12} className="test">
-                           <img className={classes.img} src={require('../../images/food-trends-2018-1200x500.jpg')} />
-                        </Grid>
-                    </Container> */}
-                    
-                    {/* <img className={classes.img} src={require('../../images/food-trends-2018-1200x500.jpg')} /> */}
-
                     <div className="divBackGround"></div>
                     
                     {/* <Blog /> */}
@@ -354,13 +349,13 @@ class HomePage extends Component {
                         </div>
                     </Grid>
 
-                    <div style={{marginTop: "50px", color: "#494949"}}>
+                    <Grid container xs={12} sm={12} style={{marginTop: "50px", color: "#494949"}} >
                         <Carousel 
                             className="SecondExample"
                             autoPlay={false}
-                            timer={this.state.timer}
+                            timer={500}
                             animation={true}
-                            indicators={this.state.indicators}
+                            indicators={true}
                         >
                             {
                                 items.map( (item, index) => {
@@ -368,7 +363,9 @@ class HomePage extends Component {
                                 })
                             }
                         </Carousel>
-                    </div>
+                    </Grid>
+
+                    {/* <span>{`(min-width:600px) matches: ${matches}`}</span> */}
 
                     <AppBar color="primary" position="static" className={classes.appBar}>
                         <Typography variant="h6" color="inherit">

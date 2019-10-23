@@ -79,7 +79,8 @@ div.helloworld div:hover::before{
 
 .SecondExample
 {
-    width: 500px;
+    width: 100%;
+    //width: '1200px'
 
     .Project
     {
@@ -95,12 +96,16 @@ div.helloworld div:hover::before{
 
         .CheckButton
         {
-            margin-top: 40px;
-            color: white;
-            font-size: 30px;
-            border: 3px solid white;
-            text-transform: capitalize;
+          margin-top: 40px;
+          color: white;
+          font-size: 30px;
+          border: 3px solid white;
+          text-transform: capitalize;
         }
+    }
+
+    .Indicators{
+       margin-top: -17px !important;
     }
 }
 
